@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<nmaprun scanner="nmap" args="nmap -sV -oX sample_scan.xml 192.168.56.0/24" start="1700000000">
+  <host>
+    <status state="up"/>
+    <address addr="192.168.56.10" addrtype="ipv4"/>
+    <hostnames><hostname name="lab-web.local" type="PTR"/></hostnames>
+    <ports>
+      <port protocol="tcp" portid="22">
+        <state state="open"/>
+        <service name="ssh" product="OpenSSH" version="9.6"/>
+      </port>
+      <port protocol="tcp" portid="80">
+        <state state="open"/>
+        <service name="http" product="nginx" version="1.24"/>
+      </port>
+      <port protocol="tcp" portid="443">
+        <state state="closed"/>
+        <service name="https"/>
+      </port>
+    </ports>
+  </host>
+  <host>
+    <status state="up"/>
+    <address addr="192.168.56.20" addrtype="ipv4"/>
+    <ports>
+      <port protocol="tcp" portid="6379">
+        <state state="open"/>
+        <service name="redis" product="Redis" version="7.2"/>
+      </port>
+    </ports>
+  </host>
+  <host>
+    <status state="down"/>
+    <address addr="192.168.56.30" addrtype="ipv4"/>
+  </host>
+</nmaprun>
